@@ -6,7 +6,12 @@
 -- You can write comments in this file by starting them with two dashes, like
 -- these lines here.
 
+
 CREATE DATABASE tournament;
+
+-- Switch to tournament Database using psql \c switch
+
+\c tournament;
 
 
 CREATE TABLE IF NOT EXISTS players (
@@ -29,20 +34,25 @@ CREATE VIEW matches_so_far AS
     SELECT players.id,
     COUNT(matches.id) AS matches_played
     FROM players, matches
-    WHERE ((players.id = matches.player_one) OR (players.id = matches.player_two))
+    WHERE ((players.id = matches.player_one)
+           OR (players.id = matches.player_two))
     GROUP BY players.id
     ORDER BY count(matches.id) DESC;
 
 
 CREATE VIEW wins_per_player AS
-    SELECT players.id, players.name, COUNT(matches.winner) AS wins FROM players
+    SELECT players.id,
+           players.name,
+           COUNT(matches.winner) AS wins
+    FROM players
     JOIN matches ON players.id = matches.winner
     GROUP BY players.id, players.name
     ORDER BY players.name;
 
 
 CREATE VIEW standings AS 
-    SELECT DISTINCT(players.id), players.name,
+    SELECT DISTINCT(players.id),
+           players.name,
     CASE
         WHEN wins_per_player.wins IS NULL THEN 0
         ELSE wins_per_player.wins

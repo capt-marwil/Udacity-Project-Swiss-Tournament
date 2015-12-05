@@ -8,7 +8,7 @@ Requires Python 2.7.x, Postgres 4.x
 ##Installation##
 * Unzip tournament.zip into a directory using your favorite unzipper
  e.g. on the commandline use `unzip tournament.zip`
-* Alternatively clone the repo from [github](https://github.com/capt-marwil/tournament/blob/master/vagrant/tournament/) by typing `git clone https://github.com/capt-marwil/tournament/blob/master/vagrant/tournament`
+* Alternatively clone the repo from [github](https://github.com/capt-marwil/tournament) by typing `git clone https://github.com/capt-marwil/tournament/`
 * Open a console and navigate to the Projects Root Directory 'tournament'
 * Fire up your postgress database server and create the database from the commandline with:  
     `psql -f tournament.sql`
@@ -16,7 +16,8 @@ Requires Python 2.7.x, Postgres 4.x
 make sure you can access the database an everything works just fine
 
 ##Additional Features##
-* Added support for an odd number of playsers
+* Added support for an odd number of players
+* Added def countPlayers() 
 * Added a unit test in tournament_test.py 
 "testReportMatchesOddNumberOfPlayers()" to make sure 
 
