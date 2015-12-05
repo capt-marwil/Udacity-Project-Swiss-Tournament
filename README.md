@@ -17,7 +17,7 @@ make sure you can access the database and everything works just fine
 
 ##Additional Features##
 * Added support for an odd number of players
-* Added def countPlayers() 
+* Added evenNumberOfPlayers():
 * Added a unit test in tournament_test.py 
 "testReportMatchesOddNumberOfPlayers()" to make sure 
 
